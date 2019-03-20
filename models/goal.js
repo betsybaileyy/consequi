@@ -7,7 +7,7 @@ const GoalSchema = new Schema({
   title: { type: String, required: true },
   url: { type: String, required: true },
   summary: { type: String, required: true },
-  subconsequi: { type: String, required: true },
+  category: { type: String, required: true },
 
   tasks: [{ type: Schema.Types.ObjectId, ref: 'Task' }],
 

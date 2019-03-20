@@ -66,10 +66,10 @@ module.exports = app => {
             });
     });
 
-    // SUBconsequi
-    app.get("/n/:subconsequi", function (req, res) {
+    // category
+    app.get("/n/:category", function (req, res) {
         var currentUser = req.user;
-        Goal.find({ subconsequi: req.params.subconsequi }).lean()
+        Goal.find({ category: req.params.category }).lean()
             .then(goals => {
                 res.json({ goals, currentUser})
                 // res.render("goals-index", { goals, currentUser });
