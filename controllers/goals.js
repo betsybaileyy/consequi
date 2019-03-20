@@ -10,7 +10,8 @@ module.exports = app => {
     console.log(req.cookies);
     Goal.find().populate('author')
     .then(goals => {
-        res.render('goals-index', { goals, currentUser });
+        res.json({ goals, currentUser });
+        // res.render('goals-index', { goals, currentUser });
         // res.render('home', {});
     }).catch(err => {
         console.log(err.message);
@@ -20,7 +21,8 @@ module.exports = app => {
   app.get('/goals/new', (req, res) => {
     var currentUser = req.user;
 
-    res.render('goals-new')
+    res.json({})
+    // res.render('goals-new')
   })
 
   // CREATE
@@ -56,7 +58,8 @@ module.exports = app => {
         var currentUser = req.user;
         Goal.findById(req.params.id).populate('tasks').lean()
             .then(goal => {
-                res.render("goals-show", { goal, currentUser });
+                res.json({ goal, currentUser });
+                // res.render("goals-show", { goal, currentUser });
             })
             .catch(err => {
                 console.log(err.message);

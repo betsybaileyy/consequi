@@ -12,7 +12,8 @@ module.exports = app => {
         return Task.findById(req.params.taskId);
       })
       .then(task => {
-        res.render("replies-new", { goal, task });
+          res.json({ goal, task });
+        // res.render("replies-new", { goal, task });
       })
       .catch(err => {
         console.log(err.message);
