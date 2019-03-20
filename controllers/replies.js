@@ -1,18 +1,18 @@
-const Post = require("../models/post");
+const Goal = require("../models/goal");
 const Comment = require("../models/comment");
 const User = require("../models/user");
 
 module.exports = app => {
   // NEW REPLY
-  app.get("/posts/:postId/comments/:commentId/replies/new", (req, res) => {
-    let post;
-    Post.findById(req.params.postId)
+  app.get("/goals/:goalId/comments/:commentId/replies/new", (req, res) => {
+    let goal;
+    Goal.findById(req.params.goalId)
       .then(p => {
-        post = p;
+        goal = p;
         return Comment.findById(req.params.commentId);
       })
       .then(comment => {
-        res.render("replies-new", { post, comment });
+        res.render("replies-new", { goal, comment });
       })
       .catch(err => {
         console.log(err.message);
@@ -20,13 +20,13 @@ module.exports = app => {
   });
 
   // CREATE REPLY
-  app.post("/posts/:postId/comments/:commentId/replies", (req, res) => {
+  app.post("/goals/:goalId/comments/:commentId/replies", (req, res) => {
     // TURN REPLY INTO A COMMENT OBJECT
     const reply = new Comment(req.body);
     reply.author = req.user._id
-    // LOOKUP THE PARENT POST
-    Post.findById(req.params.postId)
-        .then(post => {
+    // LOOKUP THE PARENT goal
+    Goal.findById(req.params.goalId)
+        .then(goal => {
             // FIND THE CHILD COMMENT
             Promise.all([
                 reply.save(),
@@ -41,11 +41,11 @@ module.exports = app => {
                     ]);
                 })
                 .then(() => {
-                    res.redirect(`/posts/${req.params.postId}`);
+                    res.redirect(`/goals/${req.params.goalId}`);
                 })
                 .catch(console.error);
             // SAVE THE CHANGE TO THE PARENT DOCUMENT
-            return post.save();
+            return goal.save();
         })
 });
 };

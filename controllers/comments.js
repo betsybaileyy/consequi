@@ -1,26 +1,26 @@
-const Post = require('../models/post');
+const Goal = require('../models/goal');
 const Comment = require('../models/comment');
 
 module.exports = function(app) {
   // CREATE Comment
-  app.post("/posts/:postId/comments", function (req, res) {
+  app.post("/goals/:goalId/comments", function (req, res) {
     const comment = new Comment(req.body);
     comment.author = req.user._id;
     comment
         .save()
         .then(comment => {
             return Promise.all([
-                Post.findById(req.params.postId)
+                Goal.findById(req.params.goalId)
             ]);
         })
-        .then(([post, user]) => {
-            post.comments.unshift(comment);
+        .then(([goal, user]) => {
+            goal.comments.unshift(comment);
             return Promise.all([
-                post.save()
+                goal.save()
             ]);
         })
-        .then(post => {
-            res.redirect(`/posts/${req.params.postId}`);
+        .then(goal => {
+            res.redirect(`/goals/${req.params.goalId}`);
         })
         .catch(err => {
             console.log(err);
