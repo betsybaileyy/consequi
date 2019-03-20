@@ -10,6 +10,7 @@ module.exports = (app) => {
 
   // SIGN UP POST
   app.post("/sign-up", (req, res) => {
+      console.log('yo')
     // Create User
     const user = new User(req.body);
 

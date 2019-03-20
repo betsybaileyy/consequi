@@ -21,7 +21,7 @@ describe('Posts', function () {
         title: 'post title',
         url: 'https://www.google.com',
         summary: 'post summary',
-        subreddit: {
+        subconsequi: {
             type: String,
             required: true
         }

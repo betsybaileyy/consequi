@@ -56,17 +56,17 @@ module.exports = app => {
         var currentUser = req.user;
         Post.findById(req.params.id).populate('comments').lean()
             .then(post => {
-                res.render("posts-show", { post, currentUser });  
+                res.render("posts-show", { post, currentUser });
             })
             .catch(err => {
                 console.log(err.message);
             });
     });
 
-    // SUBREDDIT
-    app.get("/n/:subreddit", function (req, res) {
+    // SUBconsequi
+    app.get("/n/:subconsequi", function (req, res) {
         var currentUser = req.user;
-        Post.find({ subreddit: req.params.subreddit }).lean()
+        Post.find({ subconsequi: req.params.subconsequi }).lean()
             .then(posts => {
                 res.render("posts-index", { posts, currentUser });
             })
@@ -81,7 +81,7 @@ module.exports = app => {
             post.upVotes.push(req.user._id);
             post.voteScore = post.voteScore + 1;
             post.save();
-        
+
             res.status(200);
         });
     });
@@ -92,9 +92,8 @@ module.exports = app => {
             post.downVotes.push(req.user._id);
             post.voteScore = post.voteScore - 1;
             post.save();
-        
+
             res.status(200);
         });
     });
 };
-

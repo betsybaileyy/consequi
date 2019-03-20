@@ -16,7 +16,7 @@ const expressValidator = require('express-validator');
 
 
 // Connect to DB
-require('./data/reddit-db');
+require('./data/consequi-db');
 
 // Middleware
 app.engine('handlebars', exphbs({defaultLayout: 'main'}))
@@ -30,7 +30,7 @@ app.use(expressValidator());
 
 app.use(cookieParser());
 
-// Check Auth
+// // Check Auth
 var checkAuth = (req, res, next) => {
   console.log("Checking authentication");
   if (typeof req.cookies.nToken === "undefined" || req.cookies.nToken === null) {
@@ -53,7 +53,7 @@ require('./controllers/replies.js')(app);
 
 
 // Server
-app.listen(port, () => console.log(`Reddit.js listening on port ${port}!`))
+app.listen(port, () => console.log(`consequi.js listening on port ${port}!`))
 
 
 
