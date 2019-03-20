@@ -1,18 +1,18 @@
 const Goal = require("../models/goal");
-const Comment = require("../models/comment");
+const Task = require("../models/task");
 const User = require("../models/user");
 
 module.exports = app => {
   // NEW REPLY
-  app.get("/goals/:goalId/comments/:commentId/replies/new", (req, res) => {
+  app.get("/goals/:goalId/tasks/:taskId/replies/new", (req, res) => {
     let goal;
     Goal.findById(req.params.goalId)
       .then(p => {
         goal = p;
-        return Comment.findById(req.params.commentId);
+        return Task.findById(req.params.taskId);
       })
-      .then(comment => {
-        res.render("replies-new", { goal, comment });
+      .then(task => {
+        res.render("replies-new", { goal, task });
       })
       .catch(err => {
         console.log(err.message);
@@ -20,24 +20,24 @@ module.exports = app => {
   });
 
   // CREATE REPLY
-  app.post("/goals/:goalId/comments/:commentId/replies", (req, res) => {
-    // TURN REPLY INTO A COMMENT OBJECT
-    const reply = new Comment(req.body);
+  app.post("/goals/:goalId/tasks/:taskId/replies", (req, res) => {
+    // TURN REPLY INTO A task OBJECT
+    const reply = new Task(req.body);
     reply.author = req.user._id
     // LOOKUP THE PARENT goal
     Goal.findById(req.params.goalId)
         .then(goal => {
-            // FIND THE CHILD COMMENT
+            // FIND THE CHILD task
             Promise.all([
                 reply.save(),
-                Comment.findById(req.params.commentId),
+                Task.findById(req.params.taskId),
             ])
-                .then(([reply, comment]) => {
+                .then(([reply, task]) => {
                     // ADD THE REPLY
-                    comment.comments.unshift(reply._id);
+                    task.tasks.unshift(reply._id);
 
                     return Promise.all([
-                        comment.save(),
+                        task.save(),
                     ]);
                 })
                 .then(() => {

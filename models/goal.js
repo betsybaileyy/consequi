@@ -9,7 +9,7 @@ const GoalSchema = new Schema({
   summary: { type: String, required: true },
   subconsequi: { type: String, required: true },
 
-  comments: [{ type: Schema.Types.ObjectId, ref: 'Comment' }],
+  tasks: [{ type: Schema.Types.ObjectId, ref: 'Task' }],
 
   upVotes : [{ type: Schema.Types.ObjectId, ref: "User"}],
   downVotes : [{ type: Schema.Types.ObjectId, ref: "User"}],

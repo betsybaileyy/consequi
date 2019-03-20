@@ -47,7 +47,7 @@ app.use(checkAuth);
 
 // Routes
 require('./controllers/goals.js')(app);
-require('./controllers/comments.js')(app);
+require('./controllers/tasks.js')(app);
 require('./controllers/auth.js')(app);
 require('./controllers/replies.js')(app);
 

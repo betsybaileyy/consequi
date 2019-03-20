@@ -1,20 +1,20 @@
 const Goal = require('../models/goal');
-const Comment = require('../models/comment');
+const Task = require('../models/task');
 
 module.exports = function(app) {
-  // CREATE Comment
-  app.post("/goals/:goalId/comments", function (req, res) {
-    const comment = new Comment(req.body);
-    comment.author = req.user._id;
-    comment
+  // CREATE task
+  app.post("/goals/:goalId/tasks", function (req, res) {
+    const task = new Task(req.body);
+    task.author = req.user._id;
+    task
         .save()
-        .then(comment => {
+        .then(task => {
             return Promise.all([
                 Goal.findById(req.params.goalId)
             ]);
         })
         .then(([goal, user]) => {
-            goal.comments.unshift(comment);
+            goal.tasks.unshift(task);
             return Promise.all([
                 goal.save()
             ]);

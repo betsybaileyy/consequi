@@ -54,7 +54,7 @@ module.exports = app => {
     // SHOW
     app.get("/goals/:id", function (req, res) {
         var currentUser = req.user;
-        Goal.findById(req.params.id).populate('comments').lean()
+        Goal.findById(req.params.id).populate('tasks').lean()
             .then(goal => {
                 res.render("goals-show", { goal, currentUser });
             })
@@ -68,7 +68,8 @@ module.exports = app => {
         var currentUser = req.user;
         Goal.find({ subconsequi: req.params.subconsequi }).lean()
             .then(goals => {
-                res.render("goals-index", { goals, currentUser });
+                res.json({ goals, currentUser})
+                // res.render("goals-index", { goals, currentUser });
             })
             .catch(err => {
                 console.log(err);
@@ -76,24 +77,24 @@ module.exports = app => {
     });
 
     // VOTE UP
-    app.put("/goals/:id/vote-up", function(req, res) {
-        Goal.findById(req.params.id).exec(function(err, goal) {
-            goal.upVotes.push(req.user._id);
-            goal.voteScore = goal.voteScore + 1;
-            goal.save();
-
-            res.status(200);
-        });
-    });
+    // app.put("/goals/:id/vote-up", function(req, res) {
+    //     Goal.findById(req.params.id).exec(function(err, goal) {
+    //         goal.upVotes.push(req.user._id);
+    //         goal.voteScore = goal.voteScore + 1;
+    //         goal.save();
+    //
+    //         res.status(200);
+    //     });
+    // });
 
     // VOTE DOWN
-    app.put("/goals/:id/vote-down", function(req, res) {
-        Goal.findById(req.params.id).exec(function(err, goal) {
-            goal.downVotes.push(req.user._id);
-            goal.voteScore = goal.voteScore - 1;
-            goal.save();
-
-            res.status(200);
-        });
-    });
+    // app.put("/goals/:id/vote-down", function(req, res) {
+    //     Goal.findById(req.params.id).exec(function(err, goal) {
+    //         goal.downVotes.push(req.user._id);
+    //         goal.voteScore = goal.voteScore - 1;
+    //         goal.save();
+    //
+    //         res.status(200);
+    //     });
+    // });
 };
