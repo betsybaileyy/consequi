@@ -8,7 +8,7 @@ export default class GoalsContainer extends Component {
   createGoalList() {
     // DELETE goals array, satisfies eslint
     const goals = ['goal1', 'goal2', 'goal3']
-    // Map goals into Goal
+    // Map goals into GoalContainers
     return goals.map((goal) => (
       <GoalContainer goal={goal} /> 
     ))

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import OutstandingTaskHeader from './Components/OutstandingTaskHeader/OutstandingTaskHeader.jsx'
+import OutstandingTasksSection from './Components/OutstandingTasksSection/OutstandingTasksSection.jsx'
 import GoalsSection from './Components/GoalsSection/GoalsSection.jsx'
 import TasksSection from './Components/TasksSection/TasksSection.jsx'
 
@@ -9,7 +9,7 @@ export default class GoalsIndex extends Component {
     return (
       <div>
         <p>GoalsIndex</p>
-        <OutstandingTaskHeader />
+        <OutstandingTasksSection />
 
         <GoalsSection />
         <TasksSection />
