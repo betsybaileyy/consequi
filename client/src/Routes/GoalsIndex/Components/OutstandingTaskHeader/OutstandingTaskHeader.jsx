@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import OutstandingTaskHeaderText from './OutstandingTaskText/OutstandingTaskHeaderText.jsx'
+import OutstandingTaskHeaderText from './OutstandingTaskHeaderText/OutstandingTaskHeaderText.jsx'
 import './outstandingtaskheader.css'
 
 export default class OutstandingTaskHeader extends Component {
@@ -8,6 +8,7 @@ export default class OutstandingTaskHeader extends Component {
     return (
       <div>
         <p>OutstandingTaskHeader</p>
+        <OutstandingTaskHeaderText />
         <OutstandingTaskHeaderText />
       </div>
     )

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { BrowserRouter as Router } from 'react-router-dom'
 import Routes from './Routes/Routes.jsx'
 
 class App extends Component {
@@ -6,17 +7,17 @@ class App extends Component {
     super(props)
 
     this.state = {
-      user: '',
+      user: 'Tori',
     }
   }
 
   render() {
+    const { user } = this.state
+
     return (
-      <div className="App">
-        <Router>
-            <Routes />
-        </Router>
-      </div>
+      <Router>
+          <Routes user={user} />
+      </Router>
     )
   }
 }

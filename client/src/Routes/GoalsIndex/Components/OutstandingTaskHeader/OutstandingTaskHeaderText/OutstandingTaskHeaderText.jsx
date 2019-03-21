@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import './utstandingtaskheadertext.css'
+import './outstandingtaskheadertext.css'
 
 export default class OutstandingTaskHeaderText extends Component {
   render() {
