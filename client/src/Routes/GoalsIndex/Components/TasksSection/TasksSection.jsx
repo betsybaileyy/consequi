@@ -13,6 +13,7 @@ export default class TasksSection extends Component {
       <TaskContainer task={task} /> 
     ))
   }
+  
   render() {
     return (
       <div>

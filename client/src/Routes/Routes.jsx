@@ -18,7 +18,7 @@ export default class Routes extends Component {
           path="/"
           render={() => (
             user ? (
-              <GoalsIndex />
+              <GoalsIndex {...this.props} />
             ) : (
               <Landing />
             )
@@ -30,7 +30,7 @@ export default class Routes extends Component {
           path="/new-goal"
           render={() => (
             user ? (
-              <GoalsNew />
+              <GoalsNew {...this.props} />
             ) : (
               <Landing />
             )
@@ -42,7 +42,7 @@ export default class Routes extends Component {
           path="/goal-show"
           render={() => (
             user ? (
-              <GoalsShow />
+              <GoalsShow {...this.props} />
             ) : (
               <Landing />
             )
