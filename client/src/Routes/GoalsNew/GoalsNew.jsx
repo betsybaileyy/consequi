@@ -1,10 +1,15 @@
 import React, { Component } from 'react'
 
+import CreateGoalContainer from './Components/CreateGoalContainer/CreateGoalContainer.jsx'
+
+import './goalsnew.css'
+
 export default class GoalsNew extends Component {
   render() {
     return (
       <div>
-        <p>Goals-New</p>
+        <p></p>
+        <CreateGoalContainer />
       </div>
     )
   }

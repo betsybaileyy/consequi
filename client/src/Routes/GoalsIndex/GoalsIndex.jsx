@@ -4,6 +4,8 @@ import OutstandingTasksSection from './Components/OutstandingTasksSection/Outsta
 import GoalsSection from './Components/GoalsSection/GoalsSection.jsx'
 import TasksSection from './Components/TasksSection/TasksSection.jsx'
 
+import './goalsindex.css'
+
 export default class GoalsIndex extends Component {
   render() {
     return (
