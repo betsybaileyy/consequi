@@ -10,7 +10,6 @@ class Routes extends Component {
   render() {
     return (
       <div>
-
         {/* "/" => GoalsIndex */}
         <Route
           exact
