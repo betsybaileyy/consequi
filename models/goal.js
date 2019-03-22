@@ -5,15 +5,13 @@ const Populate = require("../utils/autopopulate");
 const GoalSchema = new Schema({
   author : { type: Schema.Types.ObjectId, ref: "User", required: true },
   title: { type: String, required: true },
-  url: { type: String, required: true },
+  // url: { type: String, required: true },
   summary: { type: String, required: true },
-  category: { type: String, required: true },
+  // category: { type: String, required: true },
 
   tasks: [{ type: Schema.Types.ObjectId, ref: 'Task' }],
 
-  upVotes : [{ type: Schema.Types.ObjectId, ref: "User"}],
-  downVotes : [{ type: Schema.Types.ObjectId, ref: "User"}],
-  voteScore : {type: Number}
+
 });
 
 // Always populate the author field

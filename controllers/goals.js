@@ -27,6 +27,7 @@ module.exports = app => {
 
   // CREATE
   app.post("/goals/new", (req, res) => {
+      console.log('current user:', req.user._id)
     if (req.user) {
         let goal = new Goal(req.body);
         goal.author = req.user._id;
@@ -71,7 +72,7 @@ module.exports = app => {
         var currentUser = req.user;
         Goal.find({ category: req.params.category }).lean()
             .then(goals => {
-                res.json({ goals, currentUser})
+                res.json({ goals, currentUser })
                 // res.render("goals-index", { goals, currentUser });
             })
             .catch(err => {

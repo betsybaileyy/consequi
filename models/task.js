@@ -5,7 +5,7 @@ const Populate = require("../utils/autopopulate");
 const TaskSchema = new Schema({
   content: { type: String, required: true },
   author : { type: Schema.Types.ObjectId, ref: "User", required: true },
-  tasks: [{type: Schema.Types.ObjectId, ref: "Task"}]
+  // tasks: [{type: Schema.Types.ObjectId, ref: "Task"}]
 });
 
 // Always populate the author field
