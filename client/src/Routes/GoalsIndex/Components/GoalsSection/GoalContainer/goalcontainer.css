@@ -1,0 +1,29 @@
+.goals-section-goal-container {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+
+  height: 8vh;
+  width: 55vw;
+  
+  margin-top: 2vh;
+
+  background-color: var(--card-color);
+  border: 2px solid var(--card-border-color);
+  border-radius: 15px;
+}
+
+.goals-section-goal-container-goal-text {
+  margin-left: 2vw;
+
+  font-size: 1.4em;
+  color: var(--charcoal);
+}
+
+.goals-section-goal-container-task-text {
+  margin-right: 2vw;
+  font-size: 1.25em;
+  color: var(--blue-color);
+}
+

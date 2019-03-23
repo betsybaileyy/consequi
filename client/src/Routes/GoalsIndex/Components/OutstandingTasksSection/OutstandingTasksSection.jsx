@@ -11,36 +11,23 @@ export default class OutstandingTaskHeader extends Component {
     super(props)
   
     this.state = {
-      parent: '',
-
       outstandingTasks: '',
       readyTasks: '',
    }
   
-   this.getOutstandingTasksIndex = this.getOutstandingTasksIndex.bind(this)
-   this.getOutstandingTasksShow = this.getOutstandingTasksShow.bind(this)
+   this.getOutstandingTasks = this.getOutstandingTasks.bind(this)
 
    // DELETE:
    this.noAPIfill = this.noAPIfill.bind(this)
   }
   
   componentDidMount() {
-    const { parent } = this.props
-    this.setState({ parent: parent })
-
-    switch (parent) {
-      case 'goals-index':
-        // Populate Oustanding Tasks with Index API Routes
-        this.getOutstandingTasksIndex()
-      case 'goals-show':
-        // Populate Outstanding Tasks with Show API Routes
-        this.getOutstandingTasksShow()
-    }
+    this.getOutstandingTasks()
   }
 
   // Executes to fill OutstandingTasksSection
   // if this.state.parent === goals-index
-  getOutstandingTasksIndex() {
+  getOutstandingTasks() {
     const { outstandingTasks, readyTasks } = this.state
     // Gets outsandingTasks for current User
     // API.getUserTasksOutstanding()
@@ -58,101 +45,34 @@ export default class OutstandingTaskHeader extends Component {
 
     // when both states are filled, populate component text
     if (outstandingTasks && readyTasks) {
-      this.setTextIndex()
-      this.populateOutstandingTaskHeaderText()
+      return
     } else {
       // DELETE WHOLE ELSE
       this.noAPIfill()
-      this.setTextIndex()
-      this.populateOutstandingTaskHeaderText()
     }
   }
-
-  // Executes to fill Outstanding Tasks Section
-  // if this.state.parent === goals-show
-  getOutstandingTasksShow() {
-    const { outstandingTasks, readyTasks } = this.state
-
-    // Gets outstandingTasks for current Goal
-    // API.getGoalTasksOutstanding()
-    //   .then((res) => {
-    //     // sets that number to this.state.outstandingTasks
-    //     this.setState({ outstandingTasks: res.data.num })
-    //   })
-
-    // // Gets readyTasks for current Goal
-    // API.getTasksComplete()
-    //   .then((res) => {
-    //     this.setState({ readyTasks: res.data.num })
-    //   })
-    
-    // when both states are filled, populate component text
-    if (outstandingTasks && readyTasks) {
-      this.setTextShow()
-      this.populateOutstandingTaskHeaderText()
-    } else {
-      // DELETE WHOLE ELSE
-      this.noAPIfill()
-      this.setTextShow()
-      this.populateOutstandingTaskHeaderText()
-    }
-  }
-
-  setTextIndex() {
-    const { outstandingTasks, readyTasks } = this.state
-    const outstandingTasksTextValue = `You have ${this.state.outstandingTasks} outstanding tasks`
-    const readyTasksTextValue = `Friends have ${this.state.readyTasks} ready for approval`
-
-    this.setState({
-      outstandingTasksText: outstandingTasksTextValue
-    })
-
-    this.setState({
-      readyTasksText: readyTasksTextValue
-    })
-  }
-
-  setTextShow() {
-    this.setState({
-      outstandingTasksText: `You have {this.props.outstandingTasks} outstanding tasks`
-    })
-
-    this.setState({
-      readyTasksText: `Bud approved {this.props.readyTasks} completed tasks`
-    })
-  }
-
   // DELETE WHOLE FUNCTION
   noAPIfill() {
-    this.setState({ outstandingTasks: 1 })
+    this.setState({ outstandingTasks: 12 })
     this.setState({ readyTasks: 2 })
   }
 
-  populateOutstandingTaskHeaderText() {
-    const { 
-      outstandingTasks,
-      readyTasks,
-      outstandingTasksText,
-      readyTasksText
-    } = this.state
-
-    if (outstandingTasks === '' && readyTasks === '') {
-      return null
-    }
+  render() {
+    const { outstandingTasks, readyTasks } = this.state
 
     return (
       <div id="outstanding-tasks-section-container">
-        <OutstandingTaskHeaderText text={outstandingTasksText} num={outstandingTasks} />
-        <OutstandingTaskHeaderText text={readyTasksText} num={readyTasks} />
-      </div>
-    )
-  }
-
-  render() {
-    return (
-        <div>
-          {this.populateOutstandingTaskHeaderText()}
-        </div>
+        <p className="outstanding-tasks-section-oustanding-tasks-section-text">
+          You have
+            <span id="outstanding-tasks-section-outstanding-tasks-num"> {outstandingTasks} </span>
+          outstanding tasks
+        </p>
+        <p className="outstanding-tasks-section-oustanding-tasks-section-text">
+          Friends have
+            <span id="outstanding-tasks-section-ready-tasks-num"> {readyTasks} </span>
+          ready for approval
+        </p>
+    </div>
     )
   }
 }
