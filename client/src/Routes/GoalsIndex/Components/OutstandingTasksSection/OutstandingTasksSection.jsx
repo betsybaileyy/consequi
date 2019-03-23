@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import API from '../../utils/API.js'
+// import API from '../../../../utils/API.js'
 
 import OutstandingTaskHeaderText from './OutstandingTasksSectionText/OutstandingTasksSectionText.jsx'
 import './outstandingtaskssection.css'
@@ -15,16 +15,10 @@ export default class OutstandingTaskHeader extends Component {
 
       outstandingTasks: '',
       readyTasks: '',
-
-      outstandingTasksText: '',
-      readyTasksText: '',
    }
   
    this.getOutstandingTasksIndex = this.getOutstandingTasksIndex.bind(this)
    this.getOutstandingTasksShow = this.getOutstandingTasksShow.bind(this)
-
-   this.setTextIndex = this.setTextIndex.bind(this)
-   this.setTextShow = this.setTextShow.bind(this)
 
    // DELETE:
    this.noAPIfill = this.noAPIfill.bind(this)

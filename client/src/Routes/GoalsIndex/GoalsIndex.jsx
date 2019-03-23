@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 import Navbar from '../../Components/Navbar/Navbar.jsx'
-import OutstandingTasksSection from '../../Components/OutstandingTasksSection/OutstandingTasksSection.jsx'
+import OutstandingTasksSection from './Components/OutstandingTasksSection/OutstandingTasksSection.jsx'
 import GoalsSection from './Components/GoalsSection/GoalsSection.jsx'
 import TasksSection from './Components/TasksSection/TasksSection.jsx'
 
