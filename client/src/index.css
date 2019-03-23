@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,400i|IBM+Plex+Serif:400,500');
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,400i,500|IBM+Plex+Serif:400,500');
 
 
 body {
@@ -25,8 +25,11 @@ code {
   --card-color: #fff;
   --card-border-color: #fbfbfb;
 
+  --light-grey: #818598;
+  --charcoal: #242B37;
+
   --purple-color: #7D67C1;
   --light-purple-color: #839EFA;
 
-  --light-grey: #818598;
+  --light-blue-color: #D0D9F5;
 }

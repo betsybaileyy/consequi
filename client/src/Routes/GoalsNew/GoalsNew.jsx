@@ -7,10 +7,13 @@ import './goalsnew.css'
 
 export default class GoalsNew extends Component {
   render() {
+    const { user } = this.props
     return (
       <div>
-        <Navbar />
-        <CreateGoalContainer />
+        <Navbar user={user} />
+        <div id="create-goal-container">
+          <CreateGoalContainer />
+        </div>
       </div>
     )
   }

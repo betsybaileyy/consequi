@@ -7,8 +7,11 @@ export default class Navbar extends Component {
   render() {
     return (
       <div id="navbar-container">
-        <p id="navbar-container-logo-text">consequi</p>
-
+        <Link to="/">
+          <p id="navbar-container-logo-text">
+            consequi
+          </p>
+        </Link>
         <p id="navbar-container-account-text">
           Hi, {this.props.user}!  &nbsp; 
           <Link to="/signout">
