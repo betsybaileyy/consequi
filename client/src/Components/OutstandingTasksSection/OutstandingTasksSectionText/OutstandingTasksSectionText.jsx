@@ -5,7 +5,7 @@ export default class OutstandingTaskHeaderText extends Component {
   render() {
     return (
       <div>
-        <p>OutstandingTaskHeaderText</p>
+        <p>{}</p>
       </div>
     )
   }

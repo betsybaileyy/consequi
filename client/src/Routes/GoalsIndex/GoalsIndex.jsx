@@ -8,12 +8,19 @@ import TasksSection from './Components/TasksSection/TasksSection.jsx'
 import './goalsindex.css'
 
 export default class GoalsIndex extends Component {
+  constructor(props) {
+    super(props)
+  }
+
+
   render() {
     return (
-      <div>
+      <div id="goal-index-container">
         <Navbar user={this.props.user} />
-        <p>GoalsIndex</p>
-        <OutstandingTasksSection />
+
+        <div id="goal-index-outstanding-tasks-section">
+          <OutstandingTasksSection parent="goals-index" />
+        </div>
 
         <GoalsSection />
         <TasksSection />

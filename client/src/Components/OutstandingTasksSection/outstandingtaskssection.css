@@ -1,0 +1,15 @@
+#outstanding-tasks-section-container {
+  width: 55vw;
+  height: 20vh;
+
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-items: center;
+
+  margin-top: 4vh;
+
+  background-color: var(--card-color);
+  border: 2px solid var(--card-color-border);
+  border-radius: 15px;
+}

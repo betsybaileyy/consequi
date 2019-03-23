@@ -91,7 +91,9 @@
   outline: none;
 }
 
-#new-goal-form-submit-btn:focus {
+#new-goal-form-submit-btn:focus, #new-goal-form-submit-btn:hover {  
   color: var(--card-color);
   background-color: var(--light-purple-color);
+
+  cursor: pointer;
 }

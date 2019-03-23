@@ -1,13 +1,42 @@
 import React, { Component } from 'react'
 import { BrowserRouter as Route, Link } from 'react-router-dom'
 
+// import API from '../../../../utils/API.js'
+
 import './creategoalcontainer.css'
 
 export default class CreateGoalContainer extends Component {
-  setGoal = () => {
+  constructor(props) {
+    super(props)
+  
+    this.state = {
+       title: '',
+       summary: '',
+       email: '',
+    }
+
+    this.setGoal = this.setGoal.bind(this)
+    this.saveGoal = this.saveGoal.bind(this)
+  }
+
+
+  saveGoal = (e) => {
+    const name = e.target.name
+    const value = e.target.value
+    
+    this.setState({ [name]: value })
+  }
+  
+  setGoal = (e) => {
+    e.preventDefault()
+
+    const { title, summary, email } = this.state
+    console.log('goal title:', title)
+    console.log('goal summary:', summary)
+    console.log('bud email:', email)
+
     // API.setGoal()
     //   .then(res => console.log(res))
-    console.log('goal set!')
   }
 
   render() {
@@ -21,13 +50,13 @@ export default class CreateGoalContainer extends Component {
         </div>
         <form id="new-goal-form">
           <label id="new-goal-form-title">Goal Title
-            <input type="text" name="title" />
+            <input type="text" name="title" onChange={this.saveGoal} />
           </label>
           <label id="new-goal-form-summary">Summary
-            <textarea type="text" name="summary" />
+            <textarea type="text" name="summary" onChange={this.saveGoal} />
           </label>
           <label id="new-goal-form-email-label">Goal Bud
-            <input type="email" name="email" />
+            <input type="email" name="email" onChange={this.saveGoal} />
           </label>
 
           <button onClick={this.setGoal} id="new-goal-form-submit-btn">SET</button>
