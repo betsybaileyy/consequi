@@ -17,7 +17,7 @@ export default class GoalsShow extends Component {
         <Navbar />
         <div id="goals-show-container">
           <GoalTitleContainer title={goal.title} />
-          {/* <OutstandingTasksSection /> */}
+          <OutstandingTasksSection />
           <TaskListContainer />
         </div>
       </div>

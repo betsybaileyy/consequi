@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { BrowserRouter as Route, Link } from 'react-router-dom'
 
 import './taskcontainer.css'
 
@@ -55,17 +54,10 @@ export default class TaskContainer extends Component {
     return (
       <div className="goals-index-task-container">
         <p className="goals-index-task-bud-name">{name}</p>
-        <Link to={{
-          pathname: '/goals-show',
-          state: {
-            data: this.props.task._id,
-          }
-          }}>
         <div className="goals-index-task-container-task-section">
           <p className="goals-index-task-task-title">{task}</p>
           <p className="goals-index-goal-title">{goal}</p>
         </div>
-        </Link>
         {this.completeControl()}
       </div>
     )

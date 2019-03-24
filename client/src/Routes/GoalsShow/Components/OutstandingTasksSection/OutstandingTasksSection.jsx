@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 
 // import API from '../../../../utils/API.js'
 
-import OutstandingTaskHeaderText from './OutstandingTasksSectionText/OutstandingTasksSectionText.jsx'
 import './outstandingtaskssection.css'
 import { read } from 'fs';
 
@@ -11,8 +10,6 @@ export default class OutstandingTaskHeader extends Component {
     super(props)
   
     this.state = {
-      parent: '',
-
       outstandingTasks: '',
       readyTasks: '',
    }
@@ -24,54 +21,13 @@ export default class OutstandingTaskHeader extends Component {
   }
   
   componentDidMount() {
-    const { parent } = this.props
-    this.setState({ parent: parent })
-
-    switch (parent) {
-      case 'goals-index':
-        // Populate Oustanding Tasks with Index API Routes
-        this.getOutstandingTasksIndex()
-      case 'goals-show':
-        // Populate Outstanding Tasks with Show API Routes
-        this.getOutstandingTasksShow()
-    }
-  }
-
-  // Executes to fill OutstandingTasksSection
-  // if this.state.parent === goals-index
-  getOutstandingTasksIndex() {
-    const { outstandingTasks, readyTasks } = this.state
-    // Gets outsandingTasks for current User
-    // API.getUserTasksOutstanding()
-    //   // sets that number to this.state.outstandingTasks
-    //   .then((res) => {
-    //     this.setState({ outstandingTasks: res.data.num })
-    //   })
-
-    // // Gets readyTasks for current User's buddies
-    // API.getBuddyTasksOutstanding()
-    //   .then((res) => {
-    //     // sets that number to this.state.readyTasks
-    //     this.setState({ readyTasks: res.data.num })
-    //   })
-
-    // when both states are filled, populate component text
-    if (outstandingTasks && readyTasks) {
-      this.setTextIndex()
-      this.populateOutstandingTaskHeaderText()
-    } else {
-      // DELETE WHOLE ELSE
-      this.noAPIfill()
-      this.setTextIndex()
-      this.populateOutstandingTaskHeaderText()
-    }
+    this.getOutstandingTasks()
   }
 
   // Executes to fill Outstanding Tasks Section
   // if this.state.parent === goals-show
-  getOutstandingTasksShow() {
+  getOutstandingTasks() {
     const { outstandingTasks, readyTasks } = this.state
-
     // Gets outstandingTasks for current Goal
     // API.getGoalTasksOutstanding()
     //   .then((res) => {
@@ -87,70 +43,34 @@ export default class OutstandingTaskHeader extends Component {
     
     // when both states are filled, populate component text
     if (outstandingTasks && readyTasks) {
-      this.setTextShow()
-      this.populateOutstandingTaskHeaderText()
+      return
     } else {
       // DELETE WHOLE ELSE
       this.noAPIfill()
-      this.setTextShow()
-      this.populateOutstandingTaskHeaderText()
     }
   }
 
-  setTextIndex() {
-    const { outstandingTasks, readyTasks } = this.state
-    const outstandingTasksTextValue = `You have ${this.state.outstandingTasks} outstanding tasks`
-    const readyTasksTextValue = `Friends have ${this.state.readyTasks} ready for approval`
-
-    this.setState({
-      outstandingTasksText: outstandingTasksTextValue
-    })
-
-    this.setState({
-      readyTasksText: readyTasksTextValue
-    })
-  }
-
-  setTextShow() {
-    this.setState({
-      outstandingTasksText: `You have {this.props.outstandingTasks} outstanding tasks`
-    })
-
-    this.setState({
-      readyTasksText: `Bud approved {this.props.readyTasks} completed tasks`
-    })
-  }
-
-  // DELETE WHOLE FUNCTION
-  noAPIfill() {
-    this.setState({ outstandingTasks: 1 })
-    this.setState({ readyTasks: 2 })
-  }
-
-  populateOutstandingTaskHeaderText() {
-    const { 
-      outstandingTasks,
-      readyTasks,
-      outstandingTasksText,
-      readyTasksText
-    } = this.state
-
-    if (outstandingTasks === '' && readyTasks === '') {
-      return null
+    // DELETE WHOLE FUNCTION
+    noAPIfill() {
+      this.setState({ outstandingTasks: 1 })
+      this.setState({ readyTasks: 2 })
     }
-
-    return (
-      <div id="outstanding-tasks-section-container">
-        <OutstandingTaskHeaderText text={outstandingTasksText} num={outstandingTasks} />
-        <OutstandingTaskHeaderText text={readyTasksText} num={readyTasks} />
-      </div>
-    )
-  }
 
   render() {
+    const { outstandingTasks, readyTasks } = this.state
+
     return (
-        <div>
-          {this.populateOutstandingTaskHeaderText()}
+        <div id="outstanding-tasks-section-container">
+          <p className="outstanding-tasks-section-oustanding-tasks-section-text">
+          You have
+            <span id="outstanding-tasks-section-outstanding-tasks-num"> {outstandingTasks} </span>
+          outstanding tasks
+        </p>
+        <p className="outstanding-tasks-section-oustanding-tasks-section-text">
+          Bud approved
+            <span id="outstanding-tasks-section-ready-tasks-num"> {readyTasks} </span>
+          completed tasks
+        </p>
         </div>
     )
   }

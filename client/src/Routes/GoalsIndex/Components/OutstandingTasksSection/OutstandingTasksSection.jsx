@@ -68,7 +68,7 @@ export default class OutstandingTaskHeader extends Component {
           outstanding tasks
         </p>
         <p className="outstanding-tasks-section-oustanding-tasks-section-text">
-          Friends have
+          Buds have
             <span id="outstanding-tasks-section-ready-tasks-num"> {readyTasks} </span>
           ready for approval
         </p>
