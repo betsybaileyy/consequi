@@ -50,6 +50,7 @@ require('./controllers/goals.js')(app);
 require('./controllers/tasks.js')(app);
 require('./controllers/auth.js')(app);
 require('./controllers/replies.js')(app);
+require('./controllers/users.js')(app);
 
 
 // Server
