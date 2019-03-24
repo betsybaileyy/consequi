@@ -41,7 +41,7 @@ export default class SignInFormContainer extends Component {
   render() {
     return (
       <div id="sign-in-form-container">
-        <p>Sign In</p>
+        <p id="sign-in-heading">Sign In</p>
         <form>
           <label id="sign-in-form-email-container">Email
             <input name="username" type="email" placeholder="email" onChange={this.saveText} />

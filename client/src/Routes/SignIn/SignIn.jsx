@@ -7,10 +7,11 @@ import './signin.css'
 
 export default class SignIn extends Component {
   render() {
+    const { setUser } = this.props
     return (
       <div id="sign-in-container">
-        <SignInFormContainer />
-        <SignUpFormContainer />
+        <SignInFormContainer setUser={setUser} />
+        <SignUpFormContainer setUser={setUser} />
       </div>
     )
   }

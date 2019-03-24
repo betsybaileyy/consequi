@@ -9,6 +9,9 @@ export default class SignUpFormContainer extends Component {
        username: '',
        password: '',
     }
+
+    this.signUpUser = this.signUpUser.bind(this)
+    this.saveText = this.saveText.bind(this)
   }
 
   signUpUser = (e) => {
@@ -21,13 +24,17 @@ export default class SignUpFormContainer extends Component {
 
     API.signUpUser(userData)
       .then((res) => {
-        console.log(res.data)
+        this.setUserInApp(res.data)
       })
       .catch((err) => {
         console.log(err.message)
       })
   }
 
+  setUserInApp = (id) => {
+    const { setUser } = this.props
+    setUser(id)
+  }
   saveText = (e) => {
     const name = e.target.name
     const value = e.target.value

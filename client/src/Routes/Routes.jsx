@@ -8,7 +8,7 @@ import GoalsShow from './GoalsShow/GoalsShow.jsx'
 
 export default class Routes extends Component {  
   render() {
-    const { user } = this.props
+    const { user, setUser } = this.props
 
     return (
       <div>
@@ -20,7 +20,7 @@ export default class Routes extends Component {
             user ? (
               <GoalsIndex {...this.props} />
             ) : (
-              <SignIn />
+              <SignIn setUser={setUser} />
             )
           )} 
         />
@@ -32,7 +32,7 @@ export default class Routes extends Component {
             user ? (
               <GoalsNew {...this.props} />
             ) : (
-              <SignIn />
+              <SignIn setUser={setUser} />
             )
           )}
         />
@@ -44,7 +44,7 @@ export default class Routes extends Component {
             user ? (
               <GoalsShow {...this.props} />
             ) : (
-              <SignIn />
+              <SignIn setUser={setUser} />
             )
           )}
         />
@@ -55,7 +55,7 @@ export default class Routes extends Component {
             user ? (
               <GoalsIndex {...this.props} />
             ) : (
-              <SignIn />
+              <SignIn setUser={setUser} />
             )
           )}
         />

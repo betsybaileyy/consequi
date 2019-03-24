@@ -1,9 +1,51 @@
-.sign-in-container form {
+#sign-in-form-container,
+#sign-in-form-container form {
   display: flex;
   flex-flow: column nowrap;
   justify-content: space-around;
   align-items: center;
 
+  background-color: var(--card-color);
+
   width: 25vw;
-  height: 25vh;
+  height: 30vh;
+}
+
+#sign-in-form-container form {
+  border: 2px solid var(--card-border-color);
+  border-radius: 15px;
+}
+
+#sign-in-form-container form label {
+  display: block;
+
+  margin-left: .5vw;
+}
+
+#sign-in-form-container form label input {
+  display: block;
+
+  padding: 5px;
+  margin-left: -.5vw;
+
+  font-size: 1.15em;
+  color: var(--charcoal);
+
+  border: 1px solid var(--light-blue-color);
+  border-radius: 15px;
+}
+
+#sign-in-heading {
+  font-family: "IBM Plex Serif";
+  font-size: 1.25em;
+  font-weight: 500;
+}
+
+#sign-in-form-container-submit {
+  padding: 5px;
+  font-size: 1.1em;
+  color: var(--blue-color);
+
+  border: 1px solid var(--light-blue-color);
+  border-radius: 10px;
 }
