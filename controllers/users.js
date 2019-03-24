@@ -9,28 +9,31 @@ module.exports = app => {
     // SHOW a user's profile with all of their goals.
     app.get("/user/:id", function(req, res) {
         var currentUser = req.user;
-        if (currentUser) {
-            User.findById(currentUser)
+            User.findById(req.params.id)
                 .then(function(currentUser) {
                     console.log(currentUser)
                     res.json({
                         currentUser
                     })
                 })
-        }
     })
     // SHOW all of a user's goals
-    app.get("/user/:id/goals", function(req, res) {
+    app.get("/user/goals/:id", function(req, res) {
         var currentUser = req.user;
-        if (currentUser) {
-            User.findById(currentUser)
-                .then(function(currentUser) {
-                    console.log(currentUser)
-                    res.json({
-                        currentUser
-                    })
-                })
-        }
+
+        Goal.find({author: req.params.id}).then(function(goals) {
+            res.json({goals})
+        })
+
+
+
+            // User.findById(req.params.id)
+            //     .then(function(currentUser) {
+            //         console.log(currentUser)
+            //         res.json({
+            //             currentUser
+            //         })
+            //     })
     })
 }
 
