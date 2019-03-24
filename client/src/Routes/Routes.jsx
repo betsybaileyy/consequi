@@ -39,7 +39,7 @@ export default class Routes extends Component {
 
         {/* "/goal-show" => GoalsShow */}
         <Route
-          path="/goal-show"
+          path="/goals-show"
           render={() => (
             user ? (
               <GoalsShow {...this.props} />

@@ -13,12 +13,14 @@ export default class TasksSection extends Component {
         'Talk to Mitchell during instructor office hours.',
         true,
         false,
+        'Pass the spring intensive',
       ],
       [
         'TORI',
         'Finish Consequi components.',
         true,
         true,
+        'Ship Consequi',
       ]
     ]
     // Map tasks into TaskContainers

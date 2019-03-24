@@ -25,6 +25,7 @@ code {
   --card-color: #fff;
   --card-border-color: #fbfbfb;
 
+  --lightest-grey: #BABCC7;
   --light-grey: #818598;
   --charcoal: #242B37;
 
@@ -34,4 +35,6 @@ code {
 
   --blue-color: #5D81F8;
   --light-blue-color: #D0D9F5;
+
+  --success-green: #32C0AF;
 }
