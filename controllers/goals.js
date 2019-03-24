@@ -68,17 +68,17 @@ module.exports = app => {
     });
 
     // category
-    app.get("/n/:category", function (req, res) {
-        var currentUser = req.user;
-        Goal.find({ category: req.params.category }).lean()
-            .then(goals => {
-                res.json({ goals, currentUser })
-                // res.render("goals-index", { goals, currentUser });
-            })
-            .catch(err => {
-                console.log(err);
-            });
-    });
+    // app.get("/n/:category", function (req, res) {
+    //     var currentUser = req.user;
+    //     Goal.find({ category: req.params.category }).lean()
+    //         .then(goals => {
+    //             res.json({ goals, currentUser })
+    //             // res.render("goals-index", { goals, currentUser });
+    //         })
+    //         .catch(err => {
+    //             console.log(err);
+    //         });
+    // });
 
     // VOTE UP
     // app.put("/goals/:id/vote-up", function(req, res) {
