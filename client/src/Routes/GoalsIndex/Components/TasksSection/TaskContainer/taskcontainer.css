@@ -1,0 +1,40 @@
+.goals-index-task-container {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+
+  height: 8vh;
+  width: 55vw;
+  
+  margin-top: 2vh;
+
+  background-color: var(--card-color);
+  border: 2px solid var(--card-border-color);
+  border-radius: 15px;
+}
+
+.goals-index-task-bud-name {
+
+}
+
+.goals-index-task-task-title {
+
+}
+
+.goals-index-task-completed-container p:hover,
+.goals-index-task-completed-container p:focus {
+  cursor: pointer;
+}
+
+.goals-index-task-completed-true-selected {
+  color: #32C0AF;
+}
+
+.goals-index-task-completed-unselected {
+  color: #BABCC7;
+}
+
+.goals-index-task-completed-false-selected {
+  color: #7D67C1;
+}
