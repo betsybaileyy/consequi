@@ -8,7 +8,7 @@ const jwt = require('jsonwebtoken');
 // Initialize Libraries
 const express = require('express')
 const app = express()
-const port = 3000
+const port = process.env.PORT || 3000;
 const exphbs = require('express-handlebars');
 
 const bodyParser = require('body-parser');
@@ -30,6 +30,8 @@ app.use(expressValidator());
 
 app.use(cookieParser());
 
+var mongoose = require('mongoose');
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/consequi-db', { useNewUrlParser: true });
 // // Check Auth
 var checkAuth = (req, res, next) => {
   console.log("Checking authentication");
@@ -55,6 +57,7 @@ require('./controllers/users.js')(app);
 
 // Server
 app.listen(port, () => console.log(`consequi.js listening on port ${port}!`))
+
 
 
 
