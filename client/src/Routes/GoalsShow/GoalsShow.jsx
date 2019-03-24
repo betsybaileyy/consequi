@@ -8,13 +8,14 @@ import './goalsshow.css'
 
 export default class GoalsShow extends Component {
   render() {
+    const { user } = this.props
     const goal = {
       title: 'Pass the Spring Intensive.',
     }
 
     return (
       <div>
-        <Navbar />
+        <Navbar user={user} />
         <div id="goals-show-container">
           <GoalTitleContainer title={goal.title} />
           <OutstandingTasksSection />

@@ -6,8 +6,22 @@ import './tasklistcontainer.css'
 
 export default class TaskList extends Component {
   createTaskList() {
-    // DELETE tasks array, satisfies eslint
-    const tasks = ['task1', 'task2', 'task3']
+    // DELETE tasks array
+    const tasks = [
+      [
+        'TORI',
+        'Talk to Mitchell during instructor office hours.',
+        true,
+        false,
+      ],
+      [
+        'TORI',
+        'Finish Consequi components.',
+        true,
+        true,
+      ]
+    ]
+
     // Map tasks into TaskContainers
     return tasks.map((task) => (
       <TaskContainer task={task} /> 
@@ -16,7 +30,13 @@ export default class TaskList extends Component {
 
   render() {
     return (
-      <div>
+      <div id="goals-show-tasks-section-container">
+        <div id="goals-show-tasks-section-heading">
+          <p id="goals-show-tasks-section-task-text">Task</p>
+          <p id="goals-show-tasks-section-completed-text">Completed?</p>
+        </div>
+
+        <NewTask goal={goal} />
         {this.createTaskList()}
       </div>
     )
