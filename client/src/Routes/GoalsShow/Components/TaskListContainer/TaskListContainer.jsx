@@ -36,7 +36,7 @@ export default class TaskList extends Component {
           <p id="goals-show-tasks-section-completed-text">Completed?</p>
         </div>
 
-        <NewTask goal={goal} />
+        {/* <NewTask goal={goal} /> */}
         {this.createTaskList()}
       </div>
     )

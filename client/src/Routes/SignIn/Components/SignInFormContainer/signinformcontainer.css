@@ -1,0 +1,9 @@
+.sign-in-container form {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-around;
+  align-items: center;
+
+  width: 25vw;
+  height: 25vh;
+}

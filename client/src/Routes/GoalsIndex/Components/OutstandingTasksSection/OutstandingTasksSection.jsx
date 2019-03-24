@@ -2,9 +2,7 @@ import React, { Component } from 'react'
 
 // import API from '../../../../utils/API.js'
 
-import OutstandingTaskHeaderText from './OutstandingTasksSectionText/OutstandingTasksSectionText.jsx'
 import './outstandingtaskssection.css'
-import { read } from 'fs';
 
 export default class OutstandingTaskHeader extends Component {
   constructor(props) {

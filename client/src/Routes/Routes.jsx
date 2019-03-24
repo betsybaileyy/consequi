@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 
-import Landing from './Landing/Landing.jsx'
+import SignIn from './SignIn/SignIn.jsx'
 import GoalsIndex from './GoalsIndex/GoalsIndex.jsx'
 import GoalsNew from './GoalsNew/GoalsNew.jsx'
 import GoalsShow from './GoalsShow/GoalsShow.jsx'
@@ -20,7 +20,7 @@ export default class Routes extends Component {
             user ? (
               <GoalsIndex {...this.props} />
             ) : (
-              <Landing />
+              <SignIn />
             )
           )} 
         />
@@ -32,7 +32,7 @@ export default class Routes extends Component {
             user ? (
               <GoalsNew {...this.props} />
             ) : (
-              <Landing />
+              <SignIn />
             )
           )}
         />
@@ -44,7 +44,18 @@ export default class Routes extends Component {
             user ? (
               <GoalsShow {...this.props} />
             ) : (
-              <Landing />
+              <SignIn />
+            )
+          )}
+        />
+
+        <Route
+          path="/signin"
+          render={() => (
+            user ? (
+              <GoalsIndex {...this.props} />
+            ) : (
+              <SignIn />
             )
           )}
         />
