@@ -7,7 +7,7 @@ export default {
   },
   // Signs user out
   signOutUser: function(userData) {
-    return axios.post('/sign-out', userData)
+    return axios.get('/sign-out', userData)
   },
   // Signs user up
   signUpUser: function(userData) {

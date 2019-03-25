@@ -12,9 +12,12 @@ export default class SignInFormContainer extends Component {
        username: '',
        password: '',
     }
+
+    this.signInUser = this.signInUser.bind(this)
+    this.saveText = this.saveText.bind(this)
   }
 
-  signUpUser = (e) => {
+  signInUser = (e) => {
     e.preventDefault()
 
     const userData = {
@@ -24,11 +27,16 @@ export default class SignInFormContainer extends Component {
 
     API.signInUser(userData)
       .then((res) => {
-        console.log(res.data)
+        this.setUserInApp(res.data)
       })
       .catch((err) => {
         console.log(err.message)
       })
+  }
+
+  setUserInApp = (id) => {
+    const { setUser } = this.props
+    setUser(id)
   }
 
   saveText = (e) => {
@@ -51,7 +59,7 @@ export default class SignInFormContainer extends Component {
             <input name="password" type="text" placeholder="password" onChange={this.saveText} />
           </label>
 
-          <button id="sign-in-form-container-submit" onClick={this.signUpUser}>Sign In</button>
+          <button id="sign-in-form-container-submit" onClick={this.signInUser}>Sign In</button>
         </form>
       </div>
     )

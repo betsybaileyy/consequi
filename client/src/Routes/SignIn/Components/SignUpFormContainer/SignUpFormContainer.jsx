@@ -35,6 +35,7 @@ export default class SignUpFormContainer extends Component {
     const { setUser } = this.props
     setUser(id)
   }
+  
   saveText = (e) => {
     const name = e.target.name
     const value = e.target.value

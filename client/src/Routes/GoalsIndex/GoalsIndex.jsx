@@ -16,7 +16,7 @@ export default class GoalsIndex extends Component {
   render() {
     return (
       <div id="goal-index-container">
-        <Navbar user={this.props.user} />
+        <Navbar user={this.props.user} clearUser={this.props.clearUser} />
 
         <div id="goal-index-outstanding-tasks-section">
           <OutstandingTasksSection parent="goals-index" />

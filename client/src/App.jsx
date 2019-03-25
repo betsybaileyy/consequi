@@ -10,13 +10,21 @@ class App extends Component {
     this.state = {
       user: '',
     }
+
+    this.setUser = this.setUser.bind(this)
+    this.clearUser = this.clearUser.bind(this)
   }
 
   setUser(id) {
-    API.getUser(id)
-      .then((res) => {
-        console.dir(res)
-      })
+    this.setState({
+      user: id,
+    })
+  }
+
+  clearUser() {
+    this.setState({
+      user: '',
+    })
   }
 
   render() {
@@ -24,7 +32,7 @@ class App extends Component {
 
     return (
       <Router>
-          <Routes user={user} setUser={this.setUser} />
+          <Routes user={user} setUser={this.setUser} clearUser={this.clearUser} />
       </Router>
     )
   }
