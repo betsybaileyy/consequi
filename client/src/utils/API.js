@@ -21,7 +21,7 @@ export default {
   
   // Given a UserId, gets users goals
   getUserGoals: function(id) {
-    return axios.get('/goals/', id)
+    return axios.get(`/user/:${id}/goals`)
   },
   // Given a GoalId, get all Tasks belonging to Goal
   getGoalTasks: function(id) {

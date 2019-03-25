@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { BrowserRouter as Route, Link } from 'react-router-dom'
 
-// import API from '../../../../utils/API.js'
+import API from '../../../../utils/API.js'
 
 import './creategoalcontainer.css'
 
@@ -31,12 +31,14 @@ export default class CreateGoalContainer extends Component {
     e.preventDefault()
 
     const { title, summary, email } = this.state
-    console.log('goal title:', title)
-    console.log('goal summary:', summary)
-    console.log('bud email:', email)
+    
+    const goalData = {
+      title: title,
+      summary: summary,
+      email: email
+    }
 
-    // API.setGoal()
-    //   .then(res => console.log(res))
+    API.setGoal(goalData)
   }
 
   render() {
