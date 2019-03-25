@@ -1,0 +1,23 @@
+#goals-section-container {
+  width: 55vw;
+
+  margin-top: 4vh;
+  text-align: left;
+}
+
+#goals-section-container-my-goals-text {
+  display: inline;
+
+  margin-left: 2vw;
+
+  font-family: "IBM Plex Serif";
+  font-size: 1.25em;
+  font-weight: 600;
+  color: var(--charcoal);
+}
+
+#goals-section-container-create-new {
+  display: inline;
+  margin-left: 1vw;
+  color: var(--light-grey);
+}

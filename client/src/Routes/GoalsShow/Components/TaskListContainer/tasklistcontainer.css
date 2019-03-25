@@ -1,0 +1,27 @@
+#goals-show-tasks-section-container {
+  width: 55vw;
+
+  margin-left: 2vw;
+  margin-top: 4vh;
+}
+
+#goals-show-tasks-section-heading {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: baseline;
+
+  text-align: left;
+  font-family: "IBM Plex Serif";
+  font-size: 1.25em;
+  font-weight: 600;
+  color: var(--charcoal);
+}
+
+#goals-show-tasks-section-task-text {
+  margin-left: 2vw;
+}
+
+#goals-show-tasks-section-completed-text {
+  margin-right: 2vw;
+}

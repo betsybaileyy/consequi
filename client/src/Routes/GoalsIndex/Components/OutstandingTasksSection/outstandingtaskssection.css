@@ -1,0 +1,37 @@
+#outstanding-tasks-section-container {
+  width: 55vw;
+  height: 25vh !important;
+
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-items: center;
+
+  margin-top: 4vh;
+
+  background-color: var(--card-color);
+  border: 2px solid var(--card-color-border);
+  border-radius: 15px;
+}
+
+.outstanding-tasks-section-oustanding-tasks-section-text {
+  font-family: "IBM Plex Serif";
+  text-align: center;
+  font-size: 1.5em;
+  color: var(--charcoal);
+}
+
+.outstanding-tasks-section-oustanding-tasks-section-text span {
+  display: block;
+
+  font-family: "IBM Plex Sans";
+  font-size: 3em;
+}
+
+#outstanding-tasks-section-outstanding-tasks-num {
+  color: var(--blue-color);
+}
+
+#outstanding-tasks-section-ready-tasks-num {
+  color: var(--dark-purple-color);
+}

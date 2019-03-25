@@ -1,0 +1,29 @@
+#goals-show-title-container {
+  width: 55vw;
+  height: 8vh;
+
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+
+  background-color: var(--card-color);
+  border: 2px solid var(--card-border-color);
+  border-radius: 15px;
+}
+
+#goals-show-exit-btn {
+  width: 35px;
+  height: 35px;
+
+  margin-right: 2vw;
+}
+
+#goals-show-title-text {
+  margin-left: 2vw;
+
+  font-family: "IBM Plex Serif";
+  font-size: 1.9em;
+  font-weight: 500;
+  color: var(--charcoal);
+}
