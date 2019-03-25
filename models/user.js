@@ -7,7 +7,8 @@ const UserSchema = new Schema({
   updatedAt: { type: Date },
   password: { type: String, select: false },
   username: { type: String, required: true },
-  goals : [{ type: Schema.Types.ObjectId, ref: "Goal" }]
+  goals : [{ type: Schema.Types.ObjectId, ref: "Goal" }],
+  buddysGoals: [{ type: Schema.Types.ObjectId, ref: "Goal", default: [] }]
 });
 
 // Must use function here! ES6 => functions do not bind this!

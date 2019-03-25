@@ -4,8 +4,6 @@ const User = require('../models/user')
 
 module.exports = app => {
 
-
-
     // SHOW a user's profile with all of their goals.
     app.get("/user/:id", function(req, res) {
         var currentUser = req.user;
@@ -35,7 +33,24 @@ module.exports = app => {
             //         })
             //     })
     })
-}
+
+//     app.get("/user/your_buddys_goals/:id", function(req, res) {
+//         var currentUser = req.user;
+//
+//         // Goal.find({budUsername: req.params.id}).then(function(goals) {
+//         //     res.json({goals})
+//         // })
+//
+//         User.findById(req.params.id)
+//             .then(function(currentUser) {
+//                 console.log(currentUser)
+//                 res.json({
+//                     currentUser
+//                 }).populate()
+//             })
+//
+//     })
+// }
 
 
 // showing a users profile

@@ -40,7 +40,7 @@ app.post("/sign-in", (req, res) => {
           expiresIn: "60 days"
         });
         // Set a cookie and redirect to root
-        res.cookie("nToken", token, { maxAge: 900000, httpOnly: true }).send(user._id);
+        res.cookie("nToken", token, { maxAge: 900000000000000000000, httpOnly: true }).send(user._id);
       });
     })
     .catch(err => {

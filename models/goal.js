@@ -12,7 +12,7 @@ const GoalSchema = new Schema({
   tasks: [{ type: Schema.Types.ObjectId, ref: 'Task' }],
 
   //budID is the email of the accountability buddy assigned to the id
-  // budId: { type: String, required: true },
+  budUsername: { type: String, required: true },
 
 
 });

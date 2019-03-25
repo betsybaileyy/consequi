@@ -32,20 +32,21 @@ app.use(cookieParser());
 
 var mongoose = require('mongoose');
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/consequi-db', { useNewUrlParser: true });
-// // Check Auth
+//checkAuth middleware
 var checkAuth = (req, res, next) => {
-  console.log("Checking authentication");
-  if (typeof req.cookies.nToken === "undefined" || req.cookies.nToken === null) {
+//  console.log("Checking authentication");
+  if (typeof req.cookies.nToken === 'undefined' || req.cookies.nToken === null) {
     req.user = null;
   } else {
     var token = req.cookies.nToken;
     var decodedToken = jwt.decode(token, { complete: true }) || {};
     req.user = decodedToken.payload;
+    console.log('checkauth user', req.user)
   }
 
-  next();
-};
-app.use(checkAuth);
+  next()
+}
+app.use(checkAuth)
 
 // Routes
 require('./controllers/goals.js')(app);
@@ -61,4 +62,4 @@ app.listen(port, () => console.log(`consequi.js listening on port ${port}!`))
 
 
 
-module.exports = app;
+// module.exports = app;

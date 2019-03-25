@@ -27,31 +27,46 @@ module.exports = app => {
 
   // CREATE
   app.post("/goals/new", (req, res) => {
-      console.log('current user:', req.user._id)
-    if (req.user) {
         let goal = new Goal(req.body);
         goal.author = req.user._id;
-        goal.upVotes = [];
-        goal.downVotes = [];
-        goal.voteScore = 0;
+        goal.budUsername = req.body.budUsername;
+        // goal.upVotes = [];
+        // goal.downVotes = [];
+        // goal.voteScore = 0;
 
         goal
             .save()
             .then(goal => {
-                return User.findById(req.user._id);
+                console.log('goal', goal)
+                User.findOne({ username : goal.budUsername }).then(function(user) {
+                    if(user){
+                        console.log(user)
+                        console.log('usergoals',user.buddysGoals)
+                        if (!user.buddysGoals) {
+                            user.buddysGoals = [goal.id];
+                        } else {
+                            user.buddysGoals.push(goal.id);
+                        }
+                        user.save().then(function() {
+                            res.send('yay')
+                        })
+                    }else{
+                        res.send({err : "User not found. :("})
+                    }
+                })
+
+
             })
-            .then(user => {
-                user.goals.unshift(goal);
-                user.save();
-                // REDIRECT TO THE NEW goal
-                res.redirect(`/goals/${goal._id}`);
-            })
-            .catch(err => {
-                console.log(err.message);
-            });
-    } else {
-        return res.status(401); // UNAUTHORIZED
-    }
+            // .then(user => {
+            //     user.goals.unshift(goal);
+            //     user.save();
+            //     // REDIRECT TO THE NEW goal
+            //     res.redirect(`/goals/${goal._id}`);
+            // })
+            // .catch(err => {
+            //     console.log(err.message);
+            // });
+
   });
 
     // SHOW
