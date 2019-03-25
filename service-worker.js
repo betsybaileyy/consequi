@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/betsybaileyy/consequi/precache-manifest.530c78b974fa17f0552088467c716711.js"
+  "/consequi/precache-manifest.e1c377f096d6eaf62feca83ab20d9c01.js"
 );
 
 workbox.clientsClaim();
@@ -28,7 +28,7 @@ self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerNavigationRoute("/betsybaileyy/consequi/index.html", {
+workbox.routing.registerNavigationRoute("/consequi/index.html", {
   
   blacklist: [/^\/_/,/\/[^\/]+\.[^\/]+$/],
 });
