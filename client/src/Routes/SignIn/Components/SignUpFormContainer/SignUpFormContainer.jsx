@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import API from '../../../../utils/API'
 
+import './signupformcontainer.css'
+
 export default class SignUpFormContainer extends Component {
   constructor(props) {
     super(props)
@@ -46,7 +48,7 @@ export default class SignUpFormContainer extends Component {
   render() {
     return (
       <div id="sign-up-form-container">
-        <p>Sign Up</p>
+        <p id="sign-up-heading">Sign Up</p>
         <form>
           <label id="sign-up-form-email-container">Email
             <input name="username" type="email" placeholder="email" onChange={this.saveText} />

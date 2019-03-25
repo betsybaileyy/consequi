@@ -5,15 +5,22 @@
   justify-content: space-around;
   align-items: center;
 
-  background-color: var(--card-color);
-
   width: 25vw;
   height: 30vh;
 }
 
-#sign-in-form-container form {
+#sign-in-form-container {
+  background-color: var(--card-color);
+
   border: 2px solid var(--card-border-color);
   border-radius: 15px;
+}
+
+
+#sign-in-heading {
+  font-family: "IBM Plex Serif";
+  font-size: 1.25em;
+  font-weight: 500;
 }
 
 #sign-in-form-container form label {
@@ -26,6 +33,7 @@
   display: block;
 
   padding: 5px;
+  margin-top: .7vh;
   margin-left: -.5vw;
 
   font-size: 1.15em;
@@ -35,17 +43,26 @@
   border-radius: 15px;
 }
 
-#sign-in-heading {
-  font-family: "IBM Plex Serif";
-  font-size: 1.25em;
-  font-weight: 500;
-}
 
 #sign-in-form-container-submit {
+  margin-bottom: 1vh;
+
   padding: 5px;
   font-size: 1.1em;
   color: var(--blue-color);
 
-  border: 1px solid var(--light-blue-color);
+  border: 1px solid var(--blue-color);
   border-radius: 10px;
+
+  outline: none;
+}
+
+#sign-in-form-container-submit:focus, 
+#sign-in-form-container-submit:hover {
+  color: white;
+
+  border: 1px solid var(--blue-color);
+  background-color: var(--blue-color);
+
+  cursor: pointer;
 }

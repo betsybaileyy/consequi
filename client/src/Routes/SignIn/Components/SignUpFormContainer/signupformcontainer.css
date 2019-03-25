@@ -1,0 +1,66 @@
+#sign-up-form-container,
+#sign-up-form-container form {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-around;
+  align-items: center;
+
+  width: 25vw;
+  height: 30vh;
+}
+
+#sign-up-form-container {
+  background-color: var(--card-color);
+
+  border: 2px solid var(--card-border-color);
+  border-radius: 15px;
+}
+
+#sign-up-heading {
+  font-family: "IBM Plex Serif";
+  font-size: 1.25em;
+  font-weight: 500;
+}
+
+#sign-up-form-container form label {
+  display: block;
+
+  margin-left: .5vw;
+}
+
+#sign-up-form-container form label input {
+  display: block;
+
+  padding: 5px;
+  margin-top: .7vh;
+  margin-left: -.5vw;
+
+  font-size: 1.15em;
+  color: var(--charcoal);
+
+  border: 1px solid var(--light-blue-color);
+  border-radius: 15px;
+}
+
+#sign-up-form-container-submit {
+  margin-bottom: 1vh;
+  
+  padding: 5px;
+  font-size: 1.1em;
+  color: var(--blue-color);
+
+  border: 1px solid var(--blue-color);
+  border-radius: 10px;
+
+  outline: none;
+}
+
+#sign-up-form-container-submit:focus, 
+#sign-up-form-container-submit:hover {
+  color: white;
+
+  border: 1px solid var(--blue-color);
+  background-color: var(--blue-color);
+
+  cursor: pointer;
+}

@@ -9,9 +9,12 @@ export default class SignIn extends Component {
   render() {
     const { setUser } = this.props
     return (
-      <div id="sign-in-container">
-        <SignInFormContainer setUser={setUser} />
-        <SignUpFormContainer setUser={setUser} />
+      <div id="sign-in-page-container">
+        <p id="consequi-logo">consequi</p>
+        <div id="sign-in-container">
+          <SignInFormContainer setUser={setUser} />
+          <SignUpFormContainer setUser={setUser} />
+        </div>
       </div>
     )
   }
