@@ -1,0 +1,8 @@
+#create-goal-container {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-content: center;
+
+  margin-top: 15vh;
+}
