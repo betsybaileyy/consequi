@@ -34,23 +34,23 @@ module.exports = app => {
             //     })
     })
 
-//     app.get("/user/your_buddys_goals/:id", function(req, res) {
-//         var currentUser = req.user;
-//
-//         // Goal.find({budUsername: req.params.id}).then(function(goals) {
-//         //     res.json({goals})
-//         // })
-//
-//         User.findById(req.params.id)
-//             .then(function(currentUser) {
-//                 console.log(currentUser)
-//                 res.json({
-//                     currentUser
-//                 }).populate()
-//             })
-//
-//     })
-// }
+    // GETting all of the tasks a user has been assigned as a Bud on. Id is taking in the user's id.
+    app.get("/user/your_buddys_goals/:id", function(req, res) {
+        var currentUser = req.user.buddysGoals;
+
+        // Goal.find({budUsername: req.params.id}).then(function(goals) {
+        //     res.json({goals})
+        // })
+
+        User.findById(req.params.id)
+            .then(function(currentUser) {
+                let budGoals = currentUser.buddysGoals;
+                console.log(currentUser.buddysGoals);
+                res.send(budGoals)
+            })
+
+    })
+}
 
 
 // showing a users profile
