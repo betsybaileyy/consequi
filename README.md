@@ -76,7 +76,7 @@ To suggest edits, add additional content, or make any contribution please leave 
 Clone into this repository by running the following command in your terminal:
 `git clone https://github.com/betsybaileyy/consequi`
 
-Change directory into the new Big Mood File
+Change directory into the new Consequi File
 `cd Consequi`
 
 Be sure you have Node Package Manager installed on you computer and run
