@@ -80,7 +80,7 @@ Change directory into the new Consequi File
 `cd Consequi`
 
 Be sure you have Node Package Manager installed on you computer and run
-`npm install`
+`npm install`s
 Note: it is important to have Express.js and MongoDB installed on your computer, as well as Mongoose
 
 Insure Nodemon is installed on your computer and run
